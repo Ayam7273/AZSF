@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZSF - Pay Zakat</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/onboarding.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+
+<body>
+    <!-- Header section -->
+    <nav class="nav">
+
+        <a href="index.html" class="logo">
+            <img src="/assets/AZSF logo.png" alt="AZSF Logo">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/calculator.html">Calculator</a></li>
+            <li><a href="/nisab.html">Nisab</a></li>
+            <li class="dropdown">
+                <a>About AZSF <i class="uil uil-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="committees.html">The Committees</a></li>
+                    <li><a href="organogram.html">Organogram</a></li>
+                </ul>
+            </li>
+            <li><a href="/maintain.html">News & Events</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="apply.html" class="apply">Apply</a></li>
+            <i class="uil uil-times navCloseBtn"></i>
+        </ul>
+
+        <a class="apply-btn" href="apply.html">
+            <button class="btn">Apply</button>
+        </a>
+
+        <i class="uil uil-bars navOpenBtn"></i>
+    </nav>
+
+    <div class="section1">
+        <h1>What Nisab do you want to calculate on?</h1>
+        <div class="metal-card">
+            <div class="card-content" id="goldBtn">
+                <div class="gold-content">
+                    <img src="assets/gold.svg">
+                    <h3>Gold</h3>
+                </div>
+            </div>
+            <div class="card-content" id="silverBtn">
+                <div class="silver-content">
+                    <img src="assets/silver.svg">
+                    <h3>Silver</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gold Popup -->
+    <div id="popupGold" class="popup">
+        <button id="closeGoldPopup" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <div class="popup-header">
+            <h2>Select currency for Gold Nisab</h2>
+        </div>
+        <div class="popup-content">
+            <a href="zakat-calculator/gold/gold-usd.html">
+                <div class="card"><img src="assets/usd.svg"><span>USD</span></div>
+            </a>
+            <a href="zakat-calculator/gold/gold-gbp.html">
+                <div class="card"><img src="assets/gbp.svg"><span>GBP</span></div>
+            </a>
+            <a href="zakat-calculator/gold/gold-ngn.html">
+                <div class="card"><img src="assets/ngn.svg"><span>NGN</span></div>
+            </a>
+            <a href="zakat-calculator/gold/gold-eur.html">
+                <div class="card"><img src="assets/eur.svg"><span>EUR</span></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Silver Popup -->
+    <div id="popupSilver" class="popup">
+        <button id="closeSilverPopup" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <div class="popup-header">
+            <h2>Select currency for Silver Nisab</h2>
+        </div>
+        <div class="popup-content">
+            <a href="zakat-calculator/zc-usd.html">
+                <div class="card"><img src="assets/usd.svg"><span>USD</span></div>
+            </a>
+            <a href="zakat-calculator/zc-gbp.html">
+                <div class="card"><img src="assets/gbp.svg"><span>GBP</span></div>
+            </a>
+            <a href="zakat-calculator/zc-ngn.html">
+                <div class="card"><img src="assets/ngn.svg"><span>NGN</span></div>
+            </a>
+            <a href="zakat-calculator/zc-eur.html">
+                <div class="card"><img src="assets/eur.svg"><span>EUR</span></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <script>
+        // Get elements
+        const goldBtn = document.getElementById('goldBtn');
+        const silverBtn = document.getElementById('silverBtn');
+
+        const popupGold = document.getElementById('popupGold');
+        const popupSilver = document.getElementById('popupSilver');
+
+        const overlay = document.getElementById('overlay');
+        const closeGoldPopup = document.getElementById('closeGoldPopup');
+        const closeSilverPopup = document.getElementById('closeSilverPopup');
+
+        // Show Gold Popup
+        goldBtn.addEventListener('click', () => {
+            popupGold.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        // Show Silver Popup
+        silverBtn.addEventListener('click', () => {
+            popupSilver.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+
+        // Hide Gold Popup
+        closeGoldPopup.addEventListener('click', () => {
+            popupGold.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        // Hide Silver Popup
+        closeSilverPopup.addEventListener('click', () => {
+            popupSilver.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        // Hide popups when overlay is clicked
+        overlay.addEventListener('click', () => {
+            popupGold.style.display = 'none';
+            popupSilver.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+    </script>
+
+</body>
+
+</html>

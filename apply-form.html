@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZSF - Application Form</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/apply-form.css">
+  
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+          <img src="assets/preloader.png" alt="AZSF logo" class="preloader-logo">
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Header section -->
+    <nav class="nav">
+        <a href="../index.html" class="logo">
+        <img src="/assets/AZSF logo.png" alt="AZSF Logo">
+        </a>
+        
+        <a class="cancel-btn" href="../home.html">
+        <button class="x-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        </a>
+    </nav>
+
+    <!-- Form -->
+    <section class="form">
+        <div class="form-container">
+            <h1>Apply for Zakat Funds</h1>
+            <!-- Numbered Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+                <div class="progress-step active" data-step="1">1</div>
+                <div class="progress-step" data-step="2">2</div>
+                <div class="progress-step" data-step="3">3</div>
+                <div class="progress-step" data-step="4">4</div>
+                <div class="progress-step" data-step="5">5</div>
+            </div>
+
+            <!-- Form Steps -->
+            <form action="https://formsubmit.co/alihsanzakatsadaqat@gmail.com" method="POST" enctype="multipart/form-data">
+            
+                <!-- Step 1 -->
+                <div class="form-step active">
+                    <div class="form-group">
+                        <label for="exampleInputReligion">What is your Religion? <span class="important">*</span></label>
+                        <input type="text" name="Religion" id="exampleInputReligion" placeholder="Muslim or Non-muslim" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFirstName">First name (as on your ID)<span class="important">*</span></label>
+                        <input type="text" name="Firstname" id="exampleInputFirstName" placeholder="Firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputLastName">Last name (as on your ID)<span class="important">*</span></label>
+                        <input type="text" name="Lastname" id="exampleInputLastName"  placeholder="Lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputGender">Gender<span class="important">*</span></label>
+                        <input type="text" name="Gender" id="exampleInputGender" placeholder="Male or Female" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-date-input">Date of Birth (as on your ID) <span class="important">*</span> </label>
+                        <input type="date" name="Date Of Birth" id="example-date-input" value="2024-11-30" required>
+                    </div>
+                
+                    <button type="button" class="next-button">Next</button>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="form-step">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address <span class="important">*</span> </label>
+                        <input type="email" name="Email" id="exampleInputEmail1" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="example-tel-input">Telephone <span class="important">*</span> </label>
+                        <input type="tel" name="Telephone" id="example-tel-input" placeholder="+44-1234-567890" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address <span class="important">*</span> </label>
+                        <input type="text" name="Address" id="inputAddress" placeholder="123 Main St" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCountry">Country <span class="important">*</span> </label>
+                        <input type="text" name="Country" id="inputCountry" placeholder="United Kingdom" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                        <label for="inputCity">City <span class="important">*</span> </label>
+                        <input type="text" name="City" id="inputCity" placeholder="City" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="inputPostcode">Postcode <span class="important">*</span> </label>
+                        <input type="text" name="Postcode" id="inputPostcode" placeholder="Postcode" required>
+                        </div>
+                    </div>
+                <button type="button" class="prev-button">Previous</button>
+                <button type="button" class="next-button">Next</button>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="form-step">
+                    <div class="form-group">
+                        <label for="inputLivingStatus">What is your living status?<span class="important">*</span> </label>
+                        <input type="text" name="Living Status" id="inputLivingStatus" placeholder="I live with my spouse and children" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputChildrenCount">How many children do you have?<span class="important">*</span> </label>
+                        <input type="number" name="Children Count" id="inputChildrenCount" placeholder="3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputHousingSituation">What is your current housing situation?<span class="important">*</span> </label>
+                        <input type="text" name="Housing Situation" id="inputHousingSituation" placeholder="Rented property" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputDisability">Are you suffering from long term illness or disability?<span class="important">*</span> </label>
+                        <input type="text" name="Disability" id="inputDisability" placeholder="Yes / No" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inputAppliedRelief">Have you applied to the Hardship Relief Fund before?<span class="important">*</span> </label>
+                        <input type="text" name="Applied Relief" id="inputAppliedRelief" placeholder="I have, and I received money in the last 12 months" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputIdetificationMethod">What identification document do you hold or send "NIL"<span class="important">*</span> </label>
+                        <input type="text" name="Idetification Method" id="inputIdetificationMethod" placeholder="Passport / Driving License / BRP / ARC / National ID" required>
+                    </div>
+                    
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="next-button">Next</button>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="form-step">
+
+                    <div class="form-group">
+                        <label>Upload your identification document <span class="important">*</span> </label>
+                        <input type="file" name="Attachment" accept="image/png, image/jpeg, file/pdf" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPaypal">Do you have a PayPal account?<span class="important">*</span> </label>
+                        <input type="text" name="Paypal" id="inputPaypal" placeholder="Yes / No" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inputWorkStatus">What is your current work status?<span class="important">*</span> </label>
+                        <input type="text" name="Work Status" id="inputWorkStatus" placeholder="Full-time / Part-time / Student / I don't work" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="inputMonthlyBenefits">Do you receive state benefits monthly?<span class="important">*</span> </label>
+                        <input type="text" name="Monthly Benefits" id="inputMonthlyBenefits" placeholder="Yes / No" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputMonthlyBenefitsAmount">How much do you receive from state benefits monthly?<span class="important">*</span> </label>
+                        <input type="number" name="Monthly Benefits Amount" id="inputMonthlyBenefitsAmount" placeholder="£ 1000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputBankAccountAmount">How much money you have with you and in all of your bank account(s)?<span class="important">*</span> </label>
+                        <input type="number" name="Bank Account Amount" id="inputBankAccountAmount" placeholder="£ 2000" required>
+                    </div>
+                    
+                <button type="button" class="prev-button">Previous</button>
+                <button type="button" class="next-button">Next</button>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="form-step">
+
+                    <div class="form-group">
+                        <label for="inputGoldOrSilver">How much gold and/or silver savings do you have?<span class="important">*</span> </label>
+                        <input type="text" name="Gold Or Silver" id="inputGoldOrSilve" placeholder="I don't have gold or silver" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputMonthlyIncome">How much do you owe in total, any debts and including gas or electricity bills?<span class="important">*</span> </label>
+                        <input type="number" name="Monthly Income" id="inputMonthlyIncome" placeholder="£ 1500" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputDebts">What is your monthly income?<span class="important">*</span> </label>
+                        <input type="number" name="Debts" id="inputDebts" placeholder="£ 500" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputRent">Do you pay for Rent, Mortgage or Council Tax each month?<span class="important">*</span> </label>
+                        <input type="text" name="Rent" id="inputRent" placeholder="I pay / I don't pay" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputFinancialChallenges">Briefly describe any financial challenge(s) you are currently facing<span class="important">*</span> </label>
+                        <input type="text" name="Financial Challenges" id="inputFinancialChallenges" placeholder="Say something...." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputZakatHelp">Why do you need Zakat Help?<span class="important">*</span> </label>
+                        <input type="text" name="Zakat Help" id="inputZakatHelp" placeholder="Say something...." required>
+                    </div>
+
+                <button type="button" class="prev-button">Previous</button>
+                <button type="submit" class="submit-button">Submit</button>
+                </div>
+
+                <!-- Other Form settings -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://azsf.netlify.app/thanks.html">
+                <input type="hidden" name="_autoresponse" value="We've received your application, we'll get back to you as soon as possible!">
+                <input type="hidden" name="_template" value="table">
+            </form>
+        </div>
+    </section>
+  
+
+    <script src="js/apply-form.js"></script>
+    <script src="js/general.js"></script>
+</body>
+</html>

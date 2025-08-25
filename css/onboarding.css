@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+}
+
+.section1{
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #EBEEF1; */
+    max-width: fit-content;
+}
+
+h1{
+    color: #131313;
+    text-align: center;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.metal-card{
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: fit-content;
+}
+
+.card-content{
+    background-color: #131313;
+    padding: 30px 50px;
+    border-radius: 10px;
+    min-width: 300px;
+}
+
+.card-content:hover{
+    background-color: #07A550;
+    color: #07A550;
+}
+
+.gold-content h3{
+    font-size: 40px;
+    -webkit-text-stroke: 1px #000;
+    color: #fff;
+    font-family: "Oi", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.silver-content h3{
+    font-size: 40px;
+    -webkit-text-stroke: 1px #000;
+    color: #fff;
+    font-family: "Oi", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.648);
+    border-radius: 8px;
+    padding: 70px;
+    z-index: 1001;
+    width: 90%;
+    max-width: 800px;
+}
+
+.popup-header {
+    margin-bottom: 50px;
+}
+
+.popup-header h2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+.close-btn {
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #07A550;
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+.close-btn:hover {
+    background-color: #131313;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card {
+    background: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.card img {
+    width: 40px;
+}
+
+.card span {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "DM Sans", serif;
+    color: #131313;
+}
+
+
+.card:hover {
+    background-color: #ddd;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.81);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .metal-card{
+        flex-direction: column;
+    }
+  
+    .popup-content {
+      flex-direction: column;
+    }
+
+    h1{
+        font-size: 24px;
+    }
+}

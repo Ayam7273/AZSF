@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZSF - Contact Us</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/css/contact.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+  <!-- Phone number + Country flag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <img src="assets/preloader.png" alt="AZSF logo" class="preloader-logo">
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Header section -->
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <img src="/assets/AZSF logo.png" alt="AZSF Logo">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/calculator.html">Calculator</a></li>
+      <li><a href="/nisab.html">Nisab</a></li>
+      <li class="dropdown">
+        <a>About AZSF <i class="uil uil-angle-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="committees.html">The Committees</a></li>
+          <li><a href="organogram.html">Organogram</a></li>
+        </ul>
+      </li>
+      <li><a href="/maintain.html">News & Events</a></li>
+      <li class="nav-active"><a href="#">Contact Us</a></li>
+      <li><a href="apply.html" class="apply">Apply</a></li>
+      <i class="uil uil-times navCloseBtn"></i>
+    </ul>
+
+    <a class="apply-btn" href="apply.html">
+      <button class="btn">Apply</button>
+    </a>
+
+    <i class="uil uil-bars navOpenBtn"></i>
+  </nav>
+
+  <!-- section-one -->
+  <div class="section-one">
+    <div class="contact-container">
+      <div class="form-conainer">
+        <form action="https://formsubmit.co/alihsanzakatsadaqat@gmail.com" method="POST" class="contact-form">
+          <label for="first-name">First Name<span class="important-field">*</span></label>
+          <input type="text" name="Firstname" id="first-name" placeholder="Enter your first name" required>
+
+          <label for="last-name">Last Name<span class="important-field">*</span></label>
+          <input type="text" name="Lastname" id="last-name" placeholder="Enter your last name" required>
+
+          <label for="email">E-Mail<span class="important-field">*</span></label>
+          <input type="email" name="Email" id="email" placeholder="Enter your E-mail" required>
+
+          <label for="phone">Phone Number<span class="important-field">*</span></label>
+          <input type="tel" name="Phone" id="phone" placeholder="Enter your phone number" required>
+
+          <input type="hidden" name="country_code" id="country_code">
+
+          <label for="message">Message<span class="important-field">*</span></label>
+          <textarea name="Message" id="message" rows="4" placeholder="Send a message"></textarea>
+
+          <button type="submit" class="send-button">Send Message</button>
+
+          <!-- Other Form settings -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://azsf.netlify.app/thanks.html">
+          <input type="hidden" name="_autoresponse"
+            value="Thank you for reaching out, we'll get back to you as soon as possible!">
+          <input type="hidden" name="_template" value="box">
+        </form>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9939.549535293778!2d-0.10668366460703787!3d51.47539429587479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487603b7557f9a47%3A0x9b5d8d8e6c8e20e!2sCamberwell%2C%20London%20SE5%2C%20UK!5e0!3m2!1sen!2suk!4v1636621777181!5m2!1sen!2suk"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <section class="section-eight">
+    <div class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <h1>AZSF</h1>
+            <img src="/assets/icons/arrow-up.svg">
+          </div>
+          <!--div class="fund-reg">
+            <img src="/assets/fundraising-regulator.png" alt="">
+          </div-->
+          <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <p class="copy-right"><span>&copy;</span> AZSF 2024.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="links">
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="about.html">About AZSF</a></li>
+            <li><a href="nisab.html">Nisab</a></li>
+            <li><a href="maintain.html">News & Event</a></li>
+            <li><a href="apply.html">Apply</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="cookie.html">Cookie policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="links">
+            <li>
+              <i class="fa-solid fa-tty"></i>
+              <span>+44 7455 884242</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@al-ihsanzakat.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>
+                188 Camberwell Road,<br> 
+                London SE5 0ED
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script>
+    const phoneInputField = document.querySelector("#phone");
+    const iti = window.intlTelInput(phoneInputField, {
+      initialCountry: "gb",
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+    });
+
+    const form = document.querySelector(".contact-form");
+    form.addEventListener("submit", function () {
+      const countryCode = iti.getSelectedCountryData().dialCode;
+      document.querySelector("#country_code").value = countryCode;
+    });
+  </script>
+  <script src="js/general.js"></script>
+</body>
+
+</html>

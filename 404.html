@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  
+  <link rel="stylesheet" href="404.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="error-container">
+        <div class="animation">
+            <img src="assets/404.png" alt="Lost in Space Illustration">
+        </div>
+        <h1>404</h1>
+        <p>Oops! Page not found.</p>
+        <a href="index.html" class="back-home">Go Back Home</a>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .error-container {
+            max-width: 600px;
+            margin: auto 30px;
+            padding: 20px;
+        }
+
+        .error-container h1 {
+            font-size: 80px;
+            font-weight: bold;
+            color: #07A550;
+            margin: 0;
+        }
+
+        .error-container p {
+            font-size: 20px;
+            margin: 10px 0 20px;
+        }
+
+        .error-container .back-home {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 16px;
+            color: #fff;
+            background: #07A550;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .error-container .back-home:hover {
+            background-color: #131313;
+        }
+
+        .animation {
+            margin-top: 20px;
+        }
+
+        .animation img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        // Detects and redirects to the 404 page for "Not Found" errors.
+        if (document.title.includes("404") || !document.body.innerHTML.trim()) {
+            window.location.href = "/404.html";
+        }
+        });
+    </script>
+</body>
+</html>

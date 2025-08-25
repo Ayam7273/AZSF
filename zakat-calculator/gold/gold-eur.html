@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZSF - Calculator</title>
+  <link rel="stylesheet" href="/zakat-calculator/zc.css" />
+  <link rel="stylesheet" href="/css/general.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- Header section -->
+  <nav class="nav">
+
+    <a href="www.al-ihsanzakat.com" class="logo">
+      <img src="/assets/AZSF logo.png" alt="AZSF Logo">
+    </a>
+
+    <a class="cancel-btn" href="www.al-ihsanzakat.com">
+      <button class="x-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </a>
+  </nav>
+  <style>
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 200px;
+      background-color: #fff;
+      border-bottom: 1px solid #131313;
+      z-index: 999;
+    }
+
+    .logo img {
+      width: 150px;
+    }
+
+    .x-btn i {
+      color: #fff;
+    }
+
+    .x-btn {
+      padding: 10px 16px;
+      background-color: #07A550;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .x-btn:hover {
+      background-color: #131313;
+    }
+
+    .active-cta {
+      background-color: #07A550;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      display: inline-block;
+    }
+
+    .active-cta:hover {
+      background-color: #131313;
+      color: white;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 1232px) {
+      .nav {
+        padding: 15px 100px;
+      }
+    }
+
+    @media screen and (max-width: 950px) {
+      .nav {
+        padding: 15px 100px;
+      }
+
+    }
+
+    @media screen and (max-width: 1025px) {
+      .logo img {
+        width: 125px;
+      }
+
+      .cancel-btn {
+        display: block;
+      }
+
+      .nav {
+        padding: 15px 20px;
+      }
+
+    }
+  </style>
+
+  <form class="login" method="post" action="">
+    <div class="login__wrapper">
+
+      <div class="login__cta">
+        <div class="login__cta-text">
+            <h1>Ready to work your Zakat with <span class="text-deco">Gold</span> Nisab in <span class="text-deco">Euro?</span></h1>
+          <p id="todaynisabvalue">Today's Nisab is: €</p>
+          <div class="ref-cal">
+            <div class="refresh-container">
+              <button id="refresh_button" class="refresh-btn" onclick="resetFields()" type="button">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+            </div>
+            <a id="donate_button" class="calcbtn" role="button" data-amount="50">
+              Calculate
+            </a>
+          </div>
+
+        </div>
+        <div class="login__form">
+          <label class="login__label--sm" for="amount_home">Cash at Home</label>
+          <input id="amount_home" step="any" class="login__input-text" type="number" onchange="calculate()" />
+          <br />
+          <label class="login__label--sm" for="amount_bank">Bank Account Balance</label>
+          <br />
+          <input id="amount_bank" class="login__input-text" step="any" type="number" onchange="calculate()" /><br />
+
+          <label class="login__label--sm" for="amount_shares">Cash value of Stocks and Crypto</label><br />
+          <input id="amount_shares" class="login__input-text" step="any" type="number" onchange="calculate()" /><br />
+
+          <label class="login__label--sm" for="amount_merchandise">Profits &amp; Inventory</label><br />
+          <input id="amount_merchandise" class="login__input-text" step="any" type="number"
+            onchange="calculate()" /><br />
+
+          <label class="login__label--sm" for="amount_gold">Cash value Gold &amp; Silver</label><br />
+          <input id="amount_gold" step="any" class="login__input-text" type="number" onchange="calculate()" />
+          <br />
+          <label class="login__label--sm" for="">Cash value Investment Property</label><br />
+          <input id="amount_property" step="any" type="number" class="login__input-text" onchange="calculate()" />
+          <br />
+          <label class="login__label--sm" for="">Any Other Income</label><br />
+          <input id="amount_other" step="any" class="login__input-text" type="number" onchange="calculate()" />
+          <div class="deductions">
+            <label class="login__label--sm" for="">Debts</label><br />
+            <input class="login__input-text" id="amount_debts" step="any" type="number" onchange="calculate()" />
+            <br />
+            <label class="login__label--sm" for="">Expenses</label><br />
+            <input id="amount_expenses" step="any" type="number" class="login__input-text" onchange="calculate()" />
+          </div>
+
+          <div class="totals">
+            <label class="login__label--sm" for="">Amount Eligible For Zakat</label><br />
+            <input id="amount_eligible" type="text" readonly="readonly" class="login__input-text"
+              onchange="calculate()" />
+            <br />
+            <label class="login__label--sm" for="">Your Zakat Total (2.5% of Eligible Amount)</label><br />
+            <input id="amount_zakat" class="login__input-text" type="text" readonly="readonly" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="gold-eur.js"></script>
+  <script src="/zakat-calculator/scp.js"></script>
+  <script src="/js/general.js"></script>
+</body>
+
+</html> 

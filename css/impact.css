@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+}
+
+/* <!-- Hero section --> */
+.impact-sec1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px 20px;
+}
+
+.impact-hero {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.impact-hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #131313;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.impact-hero p {
+    font-size: 16px;
+    color: #181818;
+    margin-bottom: 30px;
+    font-family: "DM Sans", serif;
+}
+
+
+/* <!-- Stories section --> */
+.impact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 20px 80px;
+    margin-bottom: 30px;
+}
+  
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+  
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+  
+.card-content {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: 3px;
+}
+
+.card-tag{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+  
+.card-content h3 {
+    font-size: 16px;
+    margin: 0;
+    flex: 1;
+    text-align: left;
+}
+  
+.card-content a {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+  
+.card-content a i {
+    transition: transform 0.3s;
+    font-size: 30px;
+}
+  
+.card-content a:hover i {
+    transform: translateX(5px);
+}
+
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+  
+.popup-container.active {
+    visibility: visible;
+    opacity: 1;
+}
+  
+.popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    max-height: 80vh; /* Restricts height for smaller screens */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.popup::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.popup::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+  
+.popup img {
+    width: 30%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+#popup-title {
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#popup-description{
+    font-size: 12px;
+    text-align: left;
+    color: #727272;
+}
+  
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #07A550;
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 50%;
+}
+
+.popup-close:hover{
+    background-color: #131313;
+}
+  
+.popup-button {
+    background-color: #07A550;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.popup-button:hover{
+    background-color: #131313;
+}
+
+.true-story{
+    margin-top: 10px;
+}
+
+
+/* ----------------------
+------Responsiveness-----
+----------------------- */
+
+/* <!-- Hero section --> */ 
+/* Tablet View */
+@media (max-width: 768px) {
+    .impact-hero h1{
+        font-size: 28px;
+    }
+    
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+    .impact-hero h1{
+        font-size: 24px;
+    }
+}
+
+/* <!-- Stories section --> */
+/* Tablet view */
+@media screen and (max-width: 768px) {
+    .impact-cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 20px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        font-size: 14px;
+    }
+
+    .card-content a i {
+        font-size: 25px;
+    }
+
+    .popup-close {
+        position: fixed;
+        margin-bottom: 10px;
+    }
+}
+
+/* Mobile view */
+@media screen and (max-width: 480px) {
+    .impact-cards {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-content h3 {
+        font-size: 13px;
+    }
+
+    .card-content a i {
+        font-size: 20px;
+    }
+
+    .popup-close {
+        position: fixed;
+        margin-bottom: 10px;
+    }
+}

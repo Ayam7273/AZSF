@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZSF - Calculator</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/css/calculator.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <img src="assets/preloader.png" alt="AZSF logo" class="preloader-logo">
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Header section -->
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <img src="/assets/AZSF logo.png" alt="AZSF Logo">
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-active"><a href="#">Calculator</a></li>
+      <li><a href="nisab.html">Nisab</a></li>
+      <li class="dropdown">
+        <a>About AZSF <i class="uil uil-angle-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="committees.html">The Committees</a></li>
+          <li><a href="organogram.html">Organogram</a></li>
+        </ul>
+      </li>
+      <li><a href="maintain.html">News & Events</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="apply.html" class="apply">Apply</a></li>
+      <i class="uil uil-times navCloseBtn"></i>
+    </ul>
+
+    <a class="apply-btn" href="apply.html">
+      <button class="btn">Apply</button>
+    </a>
+
+    <i class="uil uil-bars navOpenBtn"></i>
+  </nav>
+
+  <!-- section-one -->
+  <section class="cal-sec1">
+    <div class="cal-hero">
+      <div class="text">
+        <h2>Zakat Calculator</h2>
+        <p>
+          Our intuitive calculator simplifies the process of determining your Zakat obligation. With just a few details about your assets and liabilities, you can accurately calculate how much you need to give. 
+        </p>
+        <p>
+          Whether it's cash, savings, investments, or other valuables, our tool ensures every eligible item is accounted for. No more confusion or stress—just a quick, clear answer to fulfill your spiritual duty. Start today and make your Zakat calculation effortless!
+        </p>
+        <div class="cal-cta">
+          <a class="calculate" href="onboarding.html">Calculate Now</a>
+        </div>
+      </div>
+      <img src="assets/cal-hero-img.png" class="cal-img" />
+    </div>
+  </section>
+
+  <!-- section-two -->
+  <section class="cal-sec2">
+    <div class="cal-steps-intro">
+      <div class="text">
+        <h2>Easy Zakat calculation with our laid down steps.</h2>
+        <p>
+          We guide you through the entire process, from listing your assets to calculating your final obligation. There’s no need for complex formulas or guesswork—just follow our laid-out instructions. Our step-by-step approach ensures you stay accurate while fulfilling your spiritual responsibility. Simplify your Zakat journey and gain peace of mind today!
+        </p>
+      </div>
+      <img src="assets/cal-sec2img.png" class="cal-steps-img" />
+    </div>
+  </section>
+
+  <!-- section-three -->
+  <section class="section-three">
+    <div class="steps-section">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>List out your assets.</h3>
+        <p>
+          Begin by compiling a comprehensive list of all your assets. This includes cash on hand, savings in bank accounts, investments, gold, silver, real estate (not including your primary residence), and any other valuables or income-generating assets. Make sure to account for all items that hold monetary value, as these form the foundation for calculating your Zakat. Accuracy is key, as overlooking assets can lead to an incomplete calculation.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Next, subtract your debts.</h3>
+        <p>
+          After listing your assets, the next step is to deduct any liabilities or debts you owe. This includes outstanding loans, credit card balances, or payments due that must be settled. Subtracting debts ensures that your Zakat calculation reflects your net wealth, focusing only on the portion that is truly in your possession and under your control.
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>If your balance exceeds the Nisab value.</h3>
+        <p>
+          Once you’ve subtracted your debts from your assets, compare the remaining balance to the Nisab threshold. Nisab is the minimum amount of wealth a person must have before being obligated to pay Zakat. This value, based on the weight of gold or silver, ensures that Zakat is only applicable to those with sufficient financial means. If your balance exceeds the Nisab, you are eligible to pay Zakat
+        </p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Then, multiply it by 2.5% to get your Zakat.</h3>
+        <p>
+          Finally, calculate your Zakat by taking 2.5% of your net balance. This percentage applies to all eligible assets and represents your obligation to support those in need. For instance, if your net wealth is $10,000, your Zakat would amount to $250. Once calculated, you can distribute this amount to individuals or organizations eligible to receive Zakat, fulfilling both a spiritual and social responsibility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section-four">
+    <div class="newsletter-bg">
+      <div class="newsletter-content">
+        <h2>Still have doubts? Let's address them</h2>
+        <p>Do you require additional information, clarification or is there anything else you would like to inquire
+          about?</p>
+        <form class="newsletter-form">
+          <a href="/contact.html">
+            <div>Contact Us</div>
+          </a>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="section-eight">
+    <div class="footer">
+      <div class="footer-row">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <h1>AZSF</h1>
+            <img src="/assets/icons/arrow-up.svg">
+          </div>
+           <!--div class="fund-reg">
+            <img src="/assets/fundraising-regulator.png" alt="">
+          </div-->
+          <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <p class="copy-right"><span>&copy;</span> AZSF 2024.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="links">
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="about.html">About AZSF</a></li>
+            <li><a href="nisab.html">Nisab</a></li>
+            <li><a href="maintain.html">News & Event</a></li>
+            <li><a href="apply.html">Apply</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="links">
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="cookie.html">Cookie policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="links">
+            <li>
+              <i class="fa-solid fa-tty"></i>
+              <span>+44 7455 884242</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@al-ihsanzakat.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>
+                188 Camberwell Road,<br> 
+                London SE5 0ED
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/general.js"></script>
+</body>
+
+</html>
