@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #131313;
+}
+
+body {
+    background-color: #fff;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Committee Section Headers */
+.committees-top {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 6rem 50px 3rem;
+    border-left: 5px solid #07A550;
+    padding: 1rem 0 1rem 1.5rem;
+    background-color: #fff;
+    /* background: linear-gradient(135deg, rgba(7, 165, 80, 0.05) 0%, rgba(7, 165, 80, 0.02) 100%); */
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+}
+
+.committees-top:hover {
+    background: linear-gradient(135deg, rgba(7, 165, 80, 0.08) 0%, rgba(7, 165, 80, 0.04) 100%);
+    transform: translateX(5px);
+}
+
+.committees-top i {
+    font-size: 2.5rem;
+    color: #07A550;
+    transition: transform 0.3s ease;
+}
+
+.committees-top:hover i {
+    transform: scale(1.1);
+}
+
+.committees-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #131313;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section 1 - Patrons (Flexbox Layout) */
+.section1 {
+    margin: 2rem 50px 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section1 .container {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100%;
+    margin: 0;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.section1 .container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Section 2 & 3 - Grid Layouts */
+.section2,
+.section3 {
+    margin: 2rem 50px 4rem;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(600px, 1fr)); */
+    gap: 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section2 .container,
+.section3 .container {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 100%;
+    margin: 0;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.section2 .container:hover,
+.section3 .container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile Cards */
+.profile-card {
+    background: #fff;
+    flex: 1;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #07A550, #05a050);
+    z-index: 1;
+}
+
+.profile-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: left;
+    color: #131313;
+    line-height: 1.3;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-divider {
+    height: 3px;
+    background: linear-gradient(90deg, #07A550, #05a050);
+    margin: 1.5rem 0;
+    border: none;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.profile-desc {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Profile Images */
+.profile-img-mobile {
+    display: none;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: -3rem auto 1.5rem auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 4px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.profile-img-mobile:hover {
+    transform: scale(1.05);
+}
+
+.profile-img-desktop {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-img-desktop:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .section2,
+    .section3 {
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .profile-img-desktop {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .committees-top {
+        margin: 5rem 30px 2rem;
+        padding: 0.75rem 0 0.75rem 1rem;
+    }
+    
+    .committees-title {
+        font-size: 2rem;
+    }
+    
+    .committees-top i {
+        font-size: 2rem;
+    }
+    
+    .section1,
+    .section2,
+    .section3 {
+        margin: 1.5rem 30px 3rem;
+    }
+    
+    .section2,
+    .section3 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .section1 .container,
+    .section2 .container,
+    .section3 .container {
+        flex-direction: column;
+        border-radius: 1rem;
+    }
+    
+    .profile-card {
+        border-radius: 1rem 1rem 0 0;
+        padding: 2rem;
+        order: 2;
+    }
+    
+    .profile-img-desktop {
+        display: none;
+    }
+    
+    .profile-img-mobile {
+        display: block;
+        order: 1;
+    }
+    
+    .profile-title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    .profile-desc {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .committees-top {
+        margin: 4rem 20px 1.5rem;
+        padding: 0.5rem 0 0.5rem 0.75rem;
+        gap: 1rem;
+    }
+    
+    .committees-title {
+        font-size: 1.75rem;
+    }
+    
+    .committees-top i {
+        font-size: 1.75rem;
+    }
+    
+    .section1,
+    .section2,
+    .section3 {
+        margin: 1rem 20px 2rem;
+        gap: 1.5rem;
+    }
+    
+    .profile-card {
+        padding: 1.5rem;
+    }
+    
+    .profile-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .profile-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .profile-img-mobile {
+        width: 8rem;
+        height: 8rem;
+        margin: -2.5rem auto 1rem auto;
+    }
+    
+    .profile-divider {
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .committees-top {
+        margin: 3rem 15px 1rem;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+    
+    .committees-title {
+        font-size: 1.5rem;
+    }
+    
+    .committees-top i {
+        font-size: 1.5rem;
+    }
+    
+    .section1,
+    .section2,
+    .section3 {
+        margin: 0.5rem 15px 1.5rem;
+    }
+    
+    .profile-card {
+        padding: 1.25rem;
+    }
+    
+    .profile-title {
+        font-size: 1.1rem;
+    }
+    
+    .profile-desc {
+        font-size: 0.9rem;
+    }
+    
+    .profile-img-mobile {
+        width: 7rem;
+        height: 7rem;
+        margin: -2rem auto 0.75rem auto;
+    }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section1 .container,
+.section2 .container,
+.section3 .container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.section1 .container:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.section2 .container:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.section2 .container:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.section2 .container:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.section2 .container:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.section2 .container:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.section2 .container:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.section3 .container:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.section3 .container:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.section3 .container:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.section3 .container:nth-child(5) {
+    animation-delay: 0.4s;
+}
