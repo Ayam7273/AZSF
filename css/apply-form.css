@@ -71,7 +71,7 @@ h1 {
 }
 
 /* Progress Bar */
-.progress-bar {
+.formprogress-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
