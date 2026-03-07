@@ -41,7 +41,7 @@ const chatHistory = [
                 
                 Email: info@al-ihsanzakat.com
 
-                Phone: +44 7455 884242
+                
 
                 Donations 
 
@@ -150,7 +150,7 @@ const chatHistory = [
 
                 Email: info@al-ihsanzakat.com 
 
-                Phone: +44 7455 884242 
+                 
 
                 Feedback form on our website. 
 
