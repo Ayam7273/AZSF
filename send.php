@@ -14,7 +14,7 @@ try {
     $mail->Host       = 'mail.al-ihsanzakat.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = 'applications@al-ihsanzakat.com';
-    $mail->Password   = 'YOUR_EMAIL_PASSWORD';
+    $mail->Password   = '@pplic@tion';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 465;
 
