@@ -15,12 +15,12 @@ try {
     $mail->SMTPAuth   = true;
     $mail->Username   = 'applications@al-ihsanzakat.com';
     $mail->Password   = '@pplic@tion';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
 
     // FROM + TO
     $mail->setFrom('applications@al-ihsanzakat.com', 'AZSF Application');
-    $mail->addAddress('alihsanzakatsadaqat@gmail.com');
+    $mail->addAddress('applications@al-ihsanzakat.com');
 
     // USER EMAIL REPLY
     if(isset($_POST['Email'])) {
