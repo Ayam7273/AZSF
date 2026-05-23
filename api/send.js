@@ -77,7 +77,7 @@ export default async function handler(req, res) {
       // SEND EMAIL
       await transporter.sendMail({
         from: process.env.SMTP_USER,
-        to: "afeezalawonde@gmail.com",
+        to: "alihsanzakatsadaqat@gmail.com",
         replyTo: fields.Email || process.env.SMTP_USER,
         subject: "New Zakat Application",
         html,
