@@ -54,7 +54,7 @@ export default async function handler(req, res) {
       // SEND EMAIL
       const info = await transporter.sendMail({
         from: `"AZSF Contact Form" <${process.env.SMTP_USER}>`,
-        to: "applications@al-ihsanzakat.com",
+        to: "alihsanzakatsadaqat@gmail.com",
         replyTo: fields.Email || process.env.SMTP_USER,
         subject: "New Contact Form Message",
         html,
