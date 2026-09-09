@@ -31,6 +31,9 @@
 
   <!-- Phone number + Country flag -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -96,6 +99,8 @@
 
           <label for="message">Message<span class="important-field">*</span></label>
           <textarea name="Message" id="message" rows="4" placeholder="Send a message"></textarea>
+
+          <div class="g-recaptcha" data-sitekey="6LdR6rEtAAAAAEddX1-1P2ltufoFUXxjQjDDNP3D"></div>
 
           <button type="submit" class="send-button">Send Message</button>
 

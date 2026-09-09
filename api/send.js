@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 import formidable from "formidable";
 import fs from "fs";
+import { verifyRecaptcha } from "../lib/verifyRecaptcha.js";
 
 export const config = {
   api: {
@@ -30,6 +31,13 @@ export default async function handler(req, res) {
     }
 
     try {
+
+      // VERIFY RECAPTCHA
+      const isHuman = await verifyRecaptcha(fields["g-recaptcha-response"]);
+
+      if (!isHuman) {
+        return res.status(400).json({ message: "reCAPTCHA verification failed. Please try again." });
+      }
 
       // SMTP TRANSPORT
       const transporter = nodemailer.createTransport({
