@@ -5,6 +5,25 @@
     font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.cookie-container h1,
+.privacy-container h1,
+.terms-container h1 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
 body {
     position: absolute;
     width: 100%;
@@ -283,7 +302,7 @@ a {
     align-items: center;
 }
   
-.footer-logo h1{
+.footer-logo p{
     font-size: 48px;
     font-weight: 300px;
     font-family: "Plus Jakarta Sans", sans-serif;
