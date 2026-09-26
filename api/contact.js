@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 import formidable from "formidable";
 import { verifyRecaptcha } from "../lib/verifyRecaptcha.js";
+import { detectSpam, escapeHtml, fieldValue } from "../lib/spamCheck.js";
 
 export const config = {
   api: {
@@ -22,6 +23,14 @@ export default async function handler(req, res) {
     }
 
     try {
+      // SPAM FILTER — pretend success so bots don't learn what tripped them
+      const spamReason = detectSpam(fields);
+
+      if (spamReason) {
+        console.warn("CONTACT SPAM BLOCKED:", spamReason);
+        return res.writeHead(302, { Location: "/thanks.html" }).end();
+      }
+
       // VERIFY RECAPTCHA
       const isHuman = await verifyRecaptcha(fields["g-recaptcha-response"]);
 
@@ -51,11 +60,11 @@ export default async function handler(req, res) {
         <h2>New Contact Form Message</h2>
 
         <table border="1" cellpadding="10" cellspacing="0">
-          <tr><td><strong>First Name</strong></td><td>${fields.Firstname || ""}</td></tr>
-          <tr><td><strong>Last Name</strong></td><td>${fields.Lastname || ""}</td></tr>
-          <tr><td><strong>Email</strong></td><td>${fields.Email || ""}</td></tr>
-          <tr><td><strong>Phone</strong></td><td>${fields.Phone || ""}</td></tr>
-          <tr><td><strong>Message</strong></td><td>${fields.Message || ""}</td></tr>
+          <tr><td><strong>First Name</strong></td><td>${escapeHtml(fieldValue(fields, "Firstname"))}</td></tr>
+          <tr><td><strong>Last Name</strong></td><td>${escapeHtml(fieldValue(fields, "Lastname"))}</td></tr>
+          <tr><td><strong>Email</strong></td><td>${escapeHtml(fieldValue(fields, "Email"))}</td></tr>
+          <tr><td><strong>Phone</strong></td><td>${escapeHtml(fieldValue(fields, "Phone"))}</td></tr>
+          <tr><td><strong>Message</strong></td><td>${escapeHtml(fieldValue(fields, "Message"))}</td></tr>
         </table>
       `;
 
@@ -63,7 +72,7 @@ export default async function handler(req, res) {
       const info = await transporter.sendMail({
         from: `"AZSF Contact Form" <${process.env.SMTP_USER}>`,
         to: "alihsanzakatsadaqat@gmail.com",
-        replyTo: fields.Email || process.env.SMTP_USER,
+        replyTo: fieldValue(fields, "Email") || process.env.SMTP_USER,
         subject: "New Contact Form Message",
         html,
       });

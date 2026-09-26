@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 import formidable from "formidable";
 import fs from "fs";
 import { verifyRecaptcha } from "../lib/verifyRecaptcha.js";
+import { contentFields, detectSpam, escapeHtml, fieldValue } from "../lib/spamCheck.js";
 
 export const config = {
   api: {
@@ -31,6 +32,14 @@ export default async function handler(req, res) {
     }
 
     try {
+
+      // SPAM FILTER — pretend success so bots don't learn what tripped them
+      const spamReason = detectSpam(fields);
+
+      if (spamReason) {
+        console.warn("APPLICATION SPAM BLOCKED:", spamReason);
+        return res.writeHead(302, { Location: "/thanks.html" }).end();
+      }
 
       // VERIFY RECAPTCHA
       const isHuman = await verifyRecaptcha(fields["g-recaptcha-response"]);
@@ -70,12 +79,12 @@ export default async function handler(req, res) {
         <h2>New Zakat Application</h2>
 
         <table border="1" cellpadding="10" cellspacing="0">
-          ${Object.entries(fields)
+          ${contentFields(fields)
             .map(
-              ([key, value]) =>
+              ([key]) =>
                 `<tr>
-                  <td><strong>${key}</strong></td>
-                  <td>${value}</td>
+                  <td><strong>${escapeHtml(key)}</strong></td>
+                  <td>${escapeHtml(fieldValue(fields, key))}</td>
                 </tr>`
             )
             .join("")}
@@ -86,7 +95,7 @@ export default async function handler(req, res) {
       await transporter.sendMail({
         from: process.env.SMTP_USER,
         to: "alihsanzakatsadaqat@gmail.com",
-        replyTo: fields.Email || process.env.SMTP_USER,
+        replyTo: fieldValue(fields, "Email") || process.env.SMTP_USER,
         subject: "New Zakat Application",
         html,
         attachments,
