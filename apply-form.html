@@ -70,8 +70,40 @@
         </a>
     </nav>
 
+    <!-- Location Gate -->
+    <div id="geo-gate" class="geo-gate">
+        <div class="geo-gate-card">
+            <div id="geo-gate-step-intro">
+                <i class="fa-solid fa-location-dot geo-gate-icon"></i>
+                <h2>Check Your Eligibility</h2>
+                <p>Al-Ihsan Zakat and Sadaqat Foundation currently accepts applications from within 30km of Camberwell, London. Please share your location to continue.</p>
+                <button type="button" id="geo-gate-request">Share My Location</button>
+                <p class="geo-gate-note">Your location is only used to confirm eligibility and is not stored.</p>
+            </div>
+
+            <div id="geo-gate-step-loading" hidden>
+                <i class="fa-solid fa-spinner fa-spin geo-gate-icon"></i>
+                <p>Checking your location&hellip;</p>
+            </div>
+
+            <div id="geo-gate-step-denied" hidden>
+                <i class="fa-solid fa-circle-exclamation geo-gate-icon geo-gate-icon-warn"></i>
+                <h2>Location Needed</h2>
+                <p id="geo-gate-denied-message">We couldn't access your location. Please allow location access in your browser settings and try again.</p>
+                <button type="button" id="geo-gate-retry">Try Again</button>
+            </div>
+
+            <div id="geo-gate-step-blocked" hidden>
+                <i class="fa-solid fa-location-dot geo-gate-icon geo-gate-icon-warn"></i>
+                <h2>Outside Our Service Area</h2>
+                <p>We're currently unable to accept applications from outside our service area around Camberwell, London. We'd encourage you to reach out to a local Zakat organisation near you.</p>
+                <a href="contact.html" class="geo-gate-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Form -->
-    <section class="form">
+    <section class="form gated" id="apply-form-section">
         <div class="form-container">
             <h1>Apply for Zakat Funds</h1>
             <!-- Numbered Progress Bar -->
@@ -82,16 +114,19 @@
                 <div class="progress-step" data-step="3">3</div>
                 <div class="progress-step" data-step="4">4</div>
                 <div class="progress-step" data-step="5">5</div>
+                <div class="progress-step" data-step="6">6</div>
             </div>
 
             <!-- Form Steps -->
-            <form action="/api/send" method="POST" enctype="multipart/form-data">
+            <form action="/api/send" method="POST" enctype="multipart/form-data" id="apply-form">
 
                 <div class="visually-hidden" aria-hidden="true">
                     <label for="hp_website">Leave this field empty</label>
                     <input type="text" name="hp_website" id="hp_website" tabindex="-1" autocomplete="off">
                 </div>
                 <input type="hidden" name="form_ts" id="form_ts">
+                <input type="hidden" name="geo_lat" id="geo_lat">
+                <input type="hidden" name="geo_lng" id="geo_lng">
 
                 <!-- Step 1 -->
                 <div class="form-step active">
@@ -257,6 +292,23 @@
                         <input type="text" name="Zakat Help" id="inputZakatHelp" placeholder="Say something...." required>
                     </div>
 
+                <button type="button" class="prev-button">Previous</button>
+                <button type="button" class="next-button">Next</button>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="form-step">
+                    <div class="form-group">
+                        <label>Book Your Appointment <span class="important">*</span></label>
+                        <p class="slot-picker-help">Appointments are held in person at Camberwell Islamic Centre, 188 Camberwell Road, London SE5 0ED, on Sundays between 4:00pm and 6:00pm, in 20-minute slots.</p>
+                        <div id="slot-picker" class="slot-picker" aria-live="polite">
+                            <p class="slot-picker-status">Loading available times&hellip;</p>
+                        </div>
+                        <p id="slot-picker-selected" class="slot-picker-selected" hidden></p>
+                        <p id="slot-picker-error" class="slot-picker-error" hidden>Please select an available appointment time before submitting.</p>
+                        <input type="hidden" name="appointment_slot" id="appointment_slot" required>
+                    </div>
+
                     <div class="g-recaptcha" data-sitekey="6LdR6rEtAAAAAEddX1-1P2ltufoFUXxjQjDDNP3D"></div>
 
                 <button type="button" class="prev-button">Previous</button>
@@ -264,13 +316,15 @@
                 </div>
 
                 <!-- Other Form settings -->
-               
+
             </form>
         </div>
     </section>
   
 
     <script>document.getElementById("form_ts").value = Date.now();</script>
+    <script src="js/geo-gate.js"></script>
+    <script src="js/appointment.js"></script>
     <script src="js/apply-form.js"></script>
     <script src="js/general.js"></script>
 </body>

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@upstash/redis": "^1.39.0",
     "formidable": "^3.5.4",
     "nodemailer": "^8.0.7"
   }

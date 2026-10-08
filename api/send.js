@@ -3,6 +3,11 @@ import formidable from "formidable";
 import fs from "fs";
 import { verifyRecaptcha } from "../lib/verifyRecaptcha.js";
 import { contentFields, detectSpam, escapeHtml, fieldValue } from "../lib/spamCheck.js";
+import { isWithinServiceArea } from "../lib/geoCheck.js";
+import { Redis } from "@upstash/redis";
+import { buildIcsContent, findSlot, formatSlotLabel, reserveSlot } from "../lib/booking.js";
+
+const redis = Redis.fromEnv();
 
 export const config = {
   api: {
@@ -48,6 +53,36 @@ export default async function handler(req, res) {
         return res.status(400).json({ message: "reCAPTCHA verification failed. Please try again." });
       }
 
+      // VERIFY SERVICE AREA
+      const geoLat = parseFloat(fieldValue(fields, "geo_lat"));
+      const geoLng = parseFloat(fieldValue(fields, "geo_lng"));
+
+      if (!isWithinServiceArea(geoLat, geoLng)) {
+        return res.writeHead(302, { Location: "/out-of-area.html" }).end();
+      }
+
+      // VERIFY & RESERVE APPOINTMENT SLOT
+      const slotId = fieldValue(fields, "appointment_slot");
+      const chosenSlot = slotId ? findSlot(slotId) : null;
+
+      if (!chosenSlot) {
+        return res.writeHead(302, { Location: "/slot-unavailable.html" }).end();
+      }
+
+      const applicantName = `${fieldValue(fields, "Firstname")} ${fieldValue(fields, "Lastname")}`.trim();
+      const applicantEmail = fieldValue(fields, "Email");
+
+      const reserved = await reserveSlot(redis, chosenSlot, {
+        name: applicantName,
+        email: applicantEmail,
+        phone: fieldValue(fields, "Telephone"),
+        bookedAt: new Date().toISOString(),
+      });
+
+      if (!reserved) {
+        return res.writeHead(302, { Location: "/slot-unavailable.html" }).end();
+      }
+
       // SMTP TRANSPORT
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
@@ -79,6 +114,10 @@ export default async function handler(req, res) {
         <h2>New Zakat Application</h2>
 
         <table border="1" cellpadding="10" cellspacing="0">
+          <tr>
+            <td><strong>Appointment</strong></td>
+            <td>${escapeHtml(formatSlotLabel(chosenSlot))}</td>
+          </tr>
           ${contentFields(fields)
             .map(
               ([key]) =>
@@ -100,6 +139,36 @@ export default async function handler(req, res) {
         html,
         attachments,
       });
+
+      // SEND APPLICANT CONFIRMATION (best-effort — the application is already sent)
+      if (applicantEmail) {
+        try {
+          const ics = buildIcsContent(chosenSlot, {
+            summary: "Zakat Application Appointment – Al-Ihsan Zakat and Sadaqat Foundation",
+            description: "Your appointment to discuss your Zakat application with Al-Ihsan Zakat and Sadaqat Foundation.",
+            uid: `${chosenSlot.id}@al-ihsanzakat.com`,
+          });
+
+          await transporter.sendMail({
+            from: `"Al-Ihsan Zakat and Sadaqat Foundation" <${process.env.SMTP_USER}>`,
+            to: applicantEmail,
+            subject: "Your Zakat Application Appointment",
+            html: `
+              <p>Assalamu alaikum${applicantName ? " " + escapeHtml(applicantName) : ""},</p>
+              <p>Thank you for applying. Your appointment is confirmed for:</p>
+              <p><strong>${escapeHtml(formatSlotLabel(chosenSlot))}</strong></p>
+              <p>Location: Camberwell Islamic Centre, 188 Camberwell Road, London SE5 0ED</p>
+            `,
+            icalEvent: {
+              filename: "appointment.ics",
+              method: "PUBLISH",
+              content: ics,
+            },
+          });
+        } catch (confirmError) {
+          console.error("APPOINTMENT CONFIRMATION EMAIL ERROR:", confirmError);
+        }
+      }
 
     return res.writeHead(302, {
   Location: "/thanks.html",

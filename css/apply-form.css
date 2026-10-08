@@ -168,9 +168,174 @@ button:hover {
     .form-container {
         padding: 20px;
     }
-    
+
     .progress-step {
         width: 30px;
         height: 30px;
     }
+}
+
+/* Location Gate */
+.form.gated {
+    display: none;
+}
+
+.geo-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.geo-gate[hidden] {
+    display: none;
+}
+
+.geo-gate-card {
+    max-width: 440px;
+    width: 100%;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.geo-gate-icon {
+    font-size: 36px;
+    color: #07A550;
+    margin-bottom: 16px;
+}
+
+.geo-gate-icon-warn {
+    color: #d9822b;
+}
+
+.geo-gate-card h2 {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    color: #131313;
+}
+
+.geo-gate-card p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.geo-gate-note {
+    font-size: 12px;
+    color: #888;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.geo-gate-link {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #07A550;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.geo-gate-link:hover {
+    background: #065c37;
+}
+
+/* Appointment Slot Picker */
+.slot-picker-help {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.slot-picker {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+}
+
+.slot-picker-status {
+    font-size: 14px;
+    color: #666;
+}
+
+.slot-retry {
+    width: auto;
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 13px;
+}
+
+.slot-group {
+    margin-bottom: 16px;
+}
+
+.slot-group:last-child {
+    margin-bottom: 0;
+}
+
+.slot-group h4 {
+    font-size: 14px;
+    color: #131313;
+    margin-bottom: 8px;
+}
+
+.slot-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.slot-btn {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: normal;
+    background: #fff;
+    color: #131313;
+    border: 1px solid #ccc;
+}
+
+.slot-btn:hover:not(:disabled) {
+    background: #e9f8f0;
+    border-color: #07A550;
+}
+
+.slot-btn.selected {
+    background: #07A550;
+    color: #fff;
+    border-color: #07A550;
+}
+
+.slot-btn.unavailable {
+    background: #f1f1f1;
+    color: #aaa;
+    border-color: #eee;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.slot-picker-selected {
+    font-size: 14px;
+    font-weight: bold;
+    color: #07A550;
+    margin-bottom: 10px;
+}
+
+.slot-picker-error {
+    font-size: 13px;
+    color: #c0392b;
+    margin-bottom: 10px;
 }
