@@ -2,8 +2,6 @@ import { Redis } from "@upstash/redis";
 import { escapeHtml } from "../lib/spamCheck.js";
 import { listBookings } from "../lib/booking.js";
 
-const redis = Redis.fromEnv();
-
 export default async function handler(req, res) {
   if (req.method !== "GET") {
     return res.status(405).json({ message: "Method not allowed" });
@@ -16,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const bookings = await listBookings(redis);
+    const bookings = await listBookings(Redis.fromEnv());
 
     const rows = bookings
       .map(

@@ -7,8 +7,6 @@ import { isWithinServiceArea } from "../lib/geoCheck.js";
 import { Redis } from "@upstash/redis";
 import { buildIcsContent, findSlot, formatSlotLabel, reserveSlot } from "../lib/booking.js";
 
-const redis = Redis.fromEnv();
-
 export const config = {
   api: {
     bodyParser: false,
@@ -72,7 +70,7 @@ export default async function handler(req, res) {
       const applicantName = `${fieldValue(fields, "Firstname")} ${fieldValue(fields, "Lastname")}`.trim();
       const applicantEmail = fieldValue(fields, "Email");
 
-      const reserved = await reserveSlot(redis, chosenSlot, {
+      const reserved = await reserveSlot(Redis.fromEnv(), chosenSlot, {
         name: applicantName,
         email: applicantEmail,
         phone: fieldValue(fields, "Telephone"),
