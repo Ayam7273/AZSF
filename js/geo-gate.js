@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Camberwell Islamic Centre, 188 Camberwell Road, London SE5 0ED
   var CENTER = { lat: 51.47539429587479, lng: -0.10668366460703787 };
-  var RADIUS_KM = 30;
+  var RADIUS_KM = 38.22;
 
   function toRad(deg) {
     return (deg * Math.PI) / 180;
